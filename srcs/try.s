@@ -1,10 +1,11 @@
 global _main
 section .text
 _main:
-	mov rdi, 0
+	mov rdi, 1
 	mov rsi, msg
 	mov rdx, len
-	jmp _ft_write
+	mov rax, 0x200004
+	syscall
 	mov rax, 0x2000001
 	mov rdi, 0
 	syscall

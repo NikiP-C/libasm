@@ -3,9 +3,10 @@
 global _ft_strdup
 extern _ft_strlen
 extern _malloc
-
 section .text
 _ft_strdup:
+	cmp rdi, 0
+	je	_ret
 	call _ft_strlen
 	push rdi
 	mov rdi, rax

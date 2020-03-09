@@ -6,13 +6,14 @@
 /*   By: nphilipp <nphilipp@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/23 17:34:31 by nphilipp       #+#    #+#                */
-/*   Updated: 2020/03/04 19:53:55 by nphilipp      ########   odam.nl         */
+/*   Updated: 2020/03/09 15:20:39 by nphilipp      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 extern char	*ft_strdup(char *str1);
 extern char	*ft_strcpy(char *str1, char *str2);
@@ -25,12 +26,9 @@ int	main(void)
 {
 	int		ret;
 	int 	fd;
-	char 	*str;
-	char	str1[] = "Hoy";
-	char	str2[] = "Hoihoihoi";
-	char	str3[] = "Hoy";
-	char	str4[] = "Hoihoihoi";
+	char 	str1[] = "hoihoihoi";
+	char	*str2;
 
-	ret = ft_strc(str2, str1);
-	printf("ret = %i\n", ret);
+	str2 = ft_strdup(str1);
+	printf("str2 = %s\n", str2);
 }
