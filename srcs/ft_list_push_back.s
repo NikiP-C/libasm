@@ -1,26 +1,20 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         ::::::::             ;
-;    ft_strcpy.s                                        :+:    :+:             ;
+;    ft_list_push_back.s                                :+:    :+:             ;
 ;                                                      +:+                     ;
 ;    By: nphilipp <nphilipp@student.codam.nl>         +#+                      ;
 ;                                                    +#+                       ;
-;    Created: 2020/03/09 12:10:24 by nphilipp       #+#    #+#                 ;
-;    Updated: 2020/03/12 18:47:45 by nphilipp      ########   odam.nl          ;
+;    Created: 2020/03/12 20:34:34 by nphilipp       #+#    #+#                 ;
+;    Updated: 2020/03/12 20:58:17 by nphilipp      ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_strcpy
-section .text
-_ret:
-	mov rax, rdi
+global _ft_list_push_back
+
+section .data
+	push rbp
+	
+.ret:
+	pop rbp
 	ret
-_ft_strcpy:
-	mov r8, 0;
-loop:
-	mov r9b, byte [rsi + r8]
-	mov byte [rdi + r8], r9b
-	cmp [rsi + r8], byte 0
-	je _ret
-	inc r8
-	jmp loop

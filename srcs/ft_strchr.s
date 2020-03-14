@@ -1,26 +1,30 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         ::::::::             ;
-;    ft_strcpy.s                                        :+:    :+:             ;
+;    ft_strchr.s                                        :+:    :+:             ;
 ;                                                      +:+                     ;
 ;    By: nphilipp <nphilipp@student.codam.nl>         +#+                      ;
 ;                                                    +#+                       ;
-;    Created: 2020/03/09 12:10:24 by nphilipp       #+#    #+#                 ;
-;    Updated: 2020/03/12 18:47:45 by nphilipp      ########   odam.nl          ;
+;    Created: 2020/03/10 12:23:33 by nphilipp       #+#    #+#                 ;
+;    Updated: 2020/03/10 18:08:02 by nphilipp      ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_strcpy
+; rdi = string, 
+; sil = char, 
+; rdx = starting location in string which we return in rax.
+global _ft_strchr
 section .text
-_ret:
-	mov rax, rdi
+_ft_strchr:
+	cmp byte [rdi + rdx], sil
+	je _found
+	inc rdx
+	cmp [rdi + rdx], byte 0
+	je _not_found
+	jmp _ft_strchr
+_found:
+	mov rax, rdx
 	ret
-_ft_strcpy:
-	mov r8, 0;
-loop:
-	mov r9b, byte [rsi + r8]
-	mov byte [rdi + r8], r9b
-	cmp [rsi + r8], byte 0
-	je _ret
-	inc r8
-	jmp loop
+_not_found:
+	mov rax, -1
+	ret
