@@ -16,7 +16,7 @@ extern _ft_strlen
 ; rdi = string
 ; rsi = base
 
-_ft_atoi_base2:
+_ft_atoi_base:
 	push r13
 	push r14
 	cmp rdi, 0
@@ -48,7 +48,7 @@ _ft_atoi_base2:
 	mov sil, 43
 	mov rdx, 0
 	call _ft_strchr
-	cmp rax, -1.
+	cmp rax, -1
 	jne _error
 	mov sil, 45
 	mov rdx, 0
